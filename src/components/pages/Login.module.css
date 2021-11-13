@@ -1,0 +1,54 @@
+.login_container {
+  width: 450px;
+  margin: 0 auto;
+  padding: 3em;
+}
+
+.login_container h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.login_container p {
+  color: #7b7b7b;
+  text-align: center;
+}
+
+.register_container {
+  border-top: 1px solid #7a7a7a;
+  margin-top: 1.2em;
+  padding-top: 1.2em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.register_container h2 {
+  flex-basis: 100%;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.register_container button {
+  color: #fff;
+  background-color: #333;
+  padding: 0.5em 1em;
+
+  text-decoration: none;
+  transition: 0.5s;
+  cursor: pointer;
+  max-height: 40px;
+  border: none;
+}
+
+.login_container button:hover {
+  color: #df1d44;
+}
+
+@media screen and (max-width: 480px) {
+  .login_container {
+    width: 320px;
+    padding: 3em 0;
+  }
+}
