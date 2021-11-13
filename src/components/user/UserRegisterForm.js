@@ -70,7 +70,12 @@ function UserRegisterForm({ btnText, handleSubmit, edit = false }) {
             placeholder="Crie uma senha segura"
             handleOnChange={handleChange}
           />
-          <Select name="level" text="Tipo de usuário" options={userTypes} />
+          <Select
+            name="level"
+            text="Tipo de usuário"
+            options={userTypes}
+            handleOnChange={handleChange}
+          />
         </>
       )}
       <SubmitButton text={btnText} />

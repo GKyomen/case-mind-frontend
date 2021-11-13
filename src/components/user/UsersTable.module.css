@@ -1,0 +1,33 @@
+.users_table {
+  background-color: #c7c7c7;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+.users_table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.users_table th,
+.users_table td {
+  padding: 0.5em;
+  border: 1px solid #ddd;
+}
+
+.users_table th {
+  background-color: #df1d44;
+  color: #efefef;
+}
+
+.users_table button {
+  background: none;
+  border: none;
+  padding: 0.5em;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.users_table button svg {
+  font-size: 1.5em;
+}

@@ -40,9 +40,9 @@ function Login({ loginDone, loggedUserId, storeToken }) {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem('token', res.token)
-        localStorage.setItem('id', res.user._id)
+        localStorage.setItem('id', res.newUser._id)
         loginDone(true)
-        loggedUserId(res.user._id)
+        loggedUserId(res.newUser._id)
         storeToken(res.token)
       })
       .catch((err) => console.log(err))

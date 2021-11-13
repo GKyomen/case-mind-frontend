@@ -5,7 +5,7 @@ import {
   Navigate,
   useLocation,
 } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Home from './components/pages/Home'
 import About from './components/pages/About'
 import Login from './components/pages/Login'
@@ -19,10 +19,6 @@ function App() {
   const [logged, setLogged] = useState(isAuthenticated())
   const [userId, setUserId] = useState(getUserID())
   const [token, setToken] = useState(getToken())
-
-  useEffect(() => {
-    console.log(token)
-  }, [token])
 
   function PrivateRoute({ children }) {
     const location = useLocation()
