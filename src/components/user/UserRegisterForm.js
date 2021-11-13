@@ -5,7 +5,7 @@ import SubmitButton from '../form/SubmitButton'
 import styles from './Form.module.css'
 import userTypes from './userTypes'
 
-function UserRegisterForm({ handleSubmit }) {
+function UserRegisterForm({ btnText, handleSubmit }) {
   const [newUser, setNewUser] = useState({})
 
   function handleChange(e) {
@@ -69,7 +69,7 @@ function UserRegisterForm({ handleSubmit }) {
         handleOnChange={handleChange}
       />
       <Select name="level" text="Tipo de usuário" options={userTypes} />
-      <SubmitButton text="Registrar-se" />
+      <SubmitButton text={btnText} />
     </form>
   )
 }

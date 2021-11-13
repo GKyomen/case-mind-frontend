@@ -3,7 +3,7 @@ import UserLoginForm from '../user/UserLoginForm'
 import UserRegisterForm from '../user/UserRegisterForm'
 import styles from './Login.module.css'
 
-function Login() {
+function Login({ loginDone, loggedUserId, storeToken }) {
   const [showRegisterForm, setShowRegisterForm] = useState(false)
 
   function toggleRegisterForm() {
@@ -21,6 +21,10 @@ function Login() {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem('token', res.token)
+        localStorage.setItem('id', res.user._id)
+        loginDone(true)
+        loggedUserId(res.user._id)
+        storeToken(res.token)
       })
       .catch((err) => console.log(err))
   }
@@ -36,6 +40,10 @@ function Login() {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem('token', res.token)
+        localStorage.setItem('id', res.user._id)
+        loginDone(true)
+        loggedUserId(res.user._id)
+        storeToken(res.token)
       })
       .catch((err) => console.log(err))
   }
@@ -50,7 +58,12 @@ function Login() {
         <button onClick={toggleRegisterForm}>
           {!showRegisterForm ? 'Registre-se' : 'Fechar formulário'}
         </button>
-        {showRegisterForm && <UserRegisterForm handleSubmit={registerUser} />}
+        {showRegisterForm && (
+          <UserRegisterForm
+            btnText="Registrar-se"
+            handleSubmit={registerUser}
+          />
+        )}
       </div>
     </section>
   )

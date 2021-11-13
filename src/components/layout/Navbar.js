@@ -3,7 +3,7 @@ import Container from './Container'
 import styles from './Navbar.module.css'
 import logo from '../../img/logo_mind.png'
 
-function Navbar() {
+function Navbar({ isAuth }) {
   return (
     <nav className={styles.navbar}>
       <Container>
@@ -17,9 +17,15 @@ function Navbar() {
           <li className={styles.item}>
             <Link to="/sobre">Sobre</Link>
           </li>
-          <li className={styles.item}>
-            <Link to="/login">Login</Link>
-          </li>
+          {isAuth ? (
+            <li className={styles.item}>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+          ) : (
+            <li className={styles.item}>
+              <Link to="/login">Login</Link>
+            </li>
+          )}
         </ul>
       </Container>
     </nav>
