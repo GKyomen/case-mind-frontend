@@ -5,6 +5,7 @@ import About from './components/pages/About'
 import Login from './components/pages/Login'
 import Navbar from './components/layout/Navbar'
 import Container from './components/layout/Container'
+import Footer from './components/layout/Footer'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </Container>
+      <Footer />
     </Router>
   )
 }

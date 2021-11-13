@@ -1,0 +1,39 @@
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 2em;
+  text-align: center;
+}
+
+.social_list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.social_list li {
+  margin: 0 1em;
+}
+
+.social_list li:hover {
+  color: #df1d44;
+}
+
+.social_list svg {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.social_list a,
+.social_list a:visited {
+  color: inherit;
+}
+
+.copy {
+  margin-top: 2em;
+}
+
+.copy span {
+  font-weight: bold;
+  color: #df1d44;
+}
