@@ -33,10 +33,11 @@ function Dashboard({ userId, token }) {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + token,
       },
+      body: JSON.stringify(user),
     })
       .then((res) => res.json())
       .then((data) => {
-        setUser(data.user)
+        setUser(data.userUpdated)
       })
       .catch((err) => console.log(err))
   }
@@ -69,6 +70,7 @@ function Dashboard({ userId, token }) {
                 btnText="Concluir edição"
                 handleSubmit={editUser}
                 userData={user}
+                edit={true}
               />
             )}
           </div>

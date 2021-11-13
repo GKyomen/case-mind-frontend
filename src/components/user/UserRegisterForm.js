@@ -5,7 +5,7 @@ import SubmitButton from '../form/SubmitButton'
 import styles from './Form.module.css'
 import userTypes from './userTypes'
 
-function UserRegisterForm({ btnText, handleSubmit }) {
+function UserRegisterForm({ btnText, handleSubmit, edit = false }) {
   const [newUser, setNewUser] = useState({})
 
   function handleChange(e) {
@@ -61,14 +61,18 @@ function UserRegisterForm({ btnText, handleSubmit }) {
         placeholder="Insira seu melhor e-mail"
         handleOnChange={handleChange}
       />
-      <Input
-        type="password"
-        text="Senha"
-        name="password"
-        placeholder="Crie uma senha segura"
-        handleOnChange={handleChange}
-      />
-      <Select name="level" text="Tipo de usuário" options={userTypes} />
+      {!edit && (
+        <>
+          <Input
+            type="password"
+            text="Senha"
+            name="password"
+            placeholder="Crie uma senha segura"
+            handleOnChange={handleChange}
+          />
+          <Select name="level" text="Tipo de usuário" options={userTypes} />
+        </>
+      )}
       <SubmitButton text={btnText} />
     </form>
   )
