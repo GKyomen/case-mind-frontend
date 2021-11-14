@@ -10,6 +10,7 @@ import Home from './components/pages/Home'
 import About from './components/pages/About'
 import Login from './components/pages/Login'
 import Dashboard from './components/pages/Dashboard'
+import EditUser from './components/pages/EditUser'
 import Navbar from './components/layout/Navbar'
 import Container from './components/layout/Container'
 import Footer from './components/layout/Footer'
@@ -56,6 +57,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Dashboard userId={userId} token={token} />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/edit"
+            element={
+              <PrivateRoute>
+                <EditUser />
               </PrivateRoute>
             }
           />

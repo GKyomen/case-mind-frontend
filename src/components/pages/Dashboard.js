@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Container from '../layout/Container'
 import UserRegisterForm from '../user/UserRegisterForm'
 import UsersTable from '../user/UsersTable'
@@ -9,6 +10,7 @@ function Dashboard({ userId, token }) {
   const [showUsersList, setShowUsersList] = useState(false)
   const [user, setUser] = useState([])
   const [listUsers, setListUsers] = useState([])
+  const navigate = useNavigate()
 
   function toggleEditForm() {
     setShowEditForm(!showEditForm)
@@ -63,6 +65,8 @@ function Dashboard({ userId, token }) {
         setUser(data.userUpdated)
       })
       .catch((err) => console.log(err))
+
+    setShowEditForm(false)
   }
 
   function toggleActive(tableUser, index) {
@@ -83,6 +87,13 @@ function Dashboard({ userId, token }) {
         setListUsers([...listUsers])
       })
       .catch((err) => console.log(err))
+  }
+
+  function adminEditUser(user) {
+    toggleUsersList()
+    navigate('/edit', {
+      state: { adminId: userId, token: token, userToEdit: user },
+    })
   }
 
   function handleDelete(tableUser) {
@@ -150,6 +161,7 @@ function Dashboard({ userId, token }) {
                     { textTitle: 'Nível de acesso', field: 'level' },
                   ]}
                   onToggleActive={toggleActive}
+                  onEdit={adminEditUser}
                   onDelete={handleDelete}
                 />
               )}

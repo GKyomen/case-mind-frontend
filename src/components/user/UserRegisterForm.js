@@ -5,11 +5,16 @@ import SubmitButton from '../form/SubmitButton'
 import styles from './Form.module.css'
 import userTypes from './userTypes'
 
-function UserRegisterForm({ btnText, handleSubmit, edit = false }) {
+function UserRegisterForm({ btnText, handleSubmit, userData, edit = false }) {
+  const [userToEdit, setUserToEdit] = useState(userData)
   const [newUser, setNewUser] = useState({})
 
   function handleChange(e) {
-    setNewUser({ ...newUser, [e.target.name]: e.target.value })
+    if (edit) {
+      setUserToEdit({ ...userToEdit, [e.target.name]: e.target.value })
+    } else {
+      setNewUser({ ...newUser, [e.target.name]: e.target.value })
+    }
   }
 
   function formatCPF(e) {
@@ -35,7 +40,11 @@ function UserRegisterForm({ btnText, handleSubmit, edit = false }) {
 
   const submit = (e) => {
     e.preventDefault()
-    handleSubmit(newUser)
+    if (edit) {
+      handleSubmit(userToEdit)
+    } else {
+      handleSubmit(newUser)
+    }
   }
 
   return (
@@ -46,6 +55,7 @@ function UserRegisterForm({ btnText, handleSubmit, edit = false }) {
         name="name"
         placeholder="Insira seu nome completo"
         handleOnChange={handleChange}
+        value={userToEdit.name ? userToEdit.name : ''}
       />
       <Input
         type="text"
@@ -53,6 +63,7 @@ function UserRegisterForm({ btnText, handleSubmit, edit = false }) {
         name="cpf"
         placeholder="Seu CPF no formato XXX.XXX.XXX-XX"
         handleOnChange={formatCPF}
+        value={userToEdit.cpf ? userToEdit.cpf : ''}
       />
       <Input
         type="email"
@@ -60,6 +71,7 @@ function UserRegisterForm({ btnText, handleSubmit, edit = false }) {
         name="email"
         placeholder="Insira seu melhor e-mail"
         handleOnChange={handleChange}
+        value={userToEdit.email ? userToEdit.email : ''}
       />
       {!edit && (
         <>
