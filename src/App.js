@@ -31,7 +31,12 @@ function App() {
 
   return (
     <Router>
-      <Navbar isAuth={logged} />
+      <Navbar
+        isAuth={logged}
+        logoffDone={setLogged}
+        clearUserId={setUserId}
+        clearToken={setToken}
+      />
       <Container customClass="min-height">
         <Routes>
           <Route path="/" element={<Home />} />

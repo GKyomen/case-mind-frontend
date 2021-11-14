@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import UserLoginForm from '../user/UserLoginForm'
 import UserRegisterForm from '../user/UserRegisterForm'
 import styles from './Login.module.css'
 
 function Login({ loginDone, loggedUserId, storeToken }) {
   const [showRegisterForm, setShowRegisterForm] = useState(false)
+  const navigate = useNavigate()
 
   function toggleRegisterForm() {
     setShowRegisterForm(!showRegisterForm)
@@ -25,6 +27,7 @@ function Login({ loginDone, loggedUserId, storeToken }) {
         loginDone(true)
         loggedUserId(res.user._id)
         storeToken(res.token)
+        navigate('/dashboard')
       })
       .catch((err) => console.log(err))
   }
@@ -44,6 +47,7 @@ function Login({ loginDone, loggedUserId, storeToken }) {
         loginDone(true)
         loggedUserId(res.newUser._id)
         storeToken(res.token)
+        navigate('/dashboard')
       })
       .catch((err) => console.log(err))
   }

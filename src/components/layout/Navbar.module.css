@@ -20,6 +20,17 @@
   text-decoration: none;
 }
 
-.item a:hover {
+.item a:hover,
+.btn:hover {
   color: #df1d44;
+}
+
+.btn {
+  color: #fff;
+  background: none;
+  border: none;
+  margin: 0.5em;
+  text-decoration: none;
+  font-size: 1em;
+  cursor: pointer;
 }
