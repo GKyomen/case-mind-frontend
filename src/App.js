@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom'
 import React, { useState } from 'react'
 import Home from './components/pages/Home'
-import About from './components/pages/About'
 import Login from './components/pages/Login'
 import Dashboard from './components/pages/Dashboard'
 import EditUser from './components/pages/EditUser'
@@ -41,7 +40,6 @@ function App() {
       <Container customClass="min-height">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/sobre" element={<About />} />
           <Route
             path="/login"
             element={

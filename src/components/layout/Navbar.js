@@ -25,9 +25,6 @@ function Navbar({ isAuth, logoffDone, clearUserId, clearToken }) {
           <li className={styles.item}>
             <Link to="/">Home</Link>
           </li>
-          <li className={styles.item}>
-            <Link to="/sobre">Sobre</Link>
-          </li>
           {isAuth ? (
             <>
               <li className={styles.item}>
